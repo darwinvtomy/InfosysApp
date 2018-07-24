@@ -1,7 +1,7 @@
 # InfosysApp
 
 <h1>CHECK LIST</h1>
-
+<ul style="list-style-type:none">
 <li>:heavy_check_mark: Create open git repository and start check-in on daily basis.</li>
 <li>:heavy_check_mark: GIT history should be proper, it should display how someone has proceed to start the assignment.</li>
 <li>:heavy_check_mark: Use of fragment is mendatory.</li>
@@ -23,4 +23,4 @@
 <li>:x: There sould be no warning message on console</li>
 <li>:heavy_check_mark: Use of thrid party library is required</li>
 <li>:x: Use latest android compenent eg RX android</li>
-
+</ul>
