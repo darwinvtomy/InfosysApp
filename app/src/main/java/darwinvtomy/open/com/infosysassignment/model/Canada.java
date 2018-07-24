@@ -2,6 +2,11 @@ package darwinvtomy.open.com.infosysassignment.model;
 
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 public class Canada {
 
     /**
@@ -28,16 +33,27 @@ public class Canada {
         this.rows = rows;
     }
 
+    @Entity(tableName = "canada_table")
     public static class RowsBean {
         /**
          * title : Beavers
          * description : Beavers are second only to humans in their ability to manipulate and change their environment. They can measure up to 1.3 metres long. A group of beavers is called a colony
          * imageHref : http://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/American_Beaver.jpg/220px-American_Beaver.jpg
          */
-
+        @PrimaryKey
+        @NonNull
+        @ColumnInfo(name = "title")
         private String title;
         private String description;
         private String imageHref;
+
+
+        public RowsBean( String title, String description, String imageHref) {
+            this.title = title;
+            this.description = description;
+            this.imageHref = imageHref;
+        }
+
 
         public String getTitle() {
             return title;
@@ -61,6 +77,12 @@ public class Canada {
 
         public void setImageHref(String imageHref) {
             this.imageHref = imageHref;
+        }
+
+
+        @Override
+        public String toString() {
+            return title + " \n " + description + " \n " + imageHref;
         }
     }
 }

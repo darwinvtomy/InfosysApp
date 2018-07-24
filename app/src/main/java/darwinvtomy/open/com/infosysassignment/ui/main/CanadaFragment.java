@@ -14,11 +14,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.List;
+
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import darwinvtomy.open.com.infosysassignment.R;
+import darwinvtomy.open.com.infosysassignment.db.CanadaViewModel;
 import darwinvtomy.open.com.infosysassignment.model.Canada;
 import darwinvtomy.open.com.infosysassignment.restservice.RestManager;
-
+import androidx.lifecycle.Observer;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -42,6 +45,9 @@ public class CanadaFragment extends Fragment implements SwipeRefreshLayout.OnRef
     RestManager restManager;
     Canada canadaList;
     RecyclerView recyclerView;
+    private static final String TAG = CanadaFragment.class.getSimpleName();
+    // private WordViewModel mWordViewModel;
+    private CanadaViewModel mCanadaViewModel;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -73,6 +79,23 @@ public class CanadaFragment extends Fragment implements SwipeRefreshLayout.OnRef
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_aboutcanada_list, container, false);
+
+        mCanadaViewModel = ViewModelProviders.of(this).get(CanadaViewModel.class);
+
+        mCanadaViewModel.getAllNews().observe(this, new Observer<List<Canada.RowsBean>>() {
+            @Override
+            public void onChanged(@Nullable final List<Canada.RowsBean> words) {
+                // Update the cached copy of the words in the adapter.
+                // adapter.setWords(words);
+
+                for (Canada.RowsBean word :
+                        words) {
+
+                    Log.e(TAG, "onChanged: " + word.toString());
+
+                }
+            }
+        });
 
         // SwipeRefreshLayout
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_container);
@@ -109,7 +132,13 @@ public class CanadaFragment extends Fragment implements SwipeRefreshLayout.OnRef
                     canadaList = response.body();
                     getActivity().setTitle(canadaList.getTitle());
                     recyclerView.setAdapter(new MyAboutCanadaRecyclerViewAdapter(canadaList, mListener));
+                    for (Canada.RowsBean word :
+                            canadaList.getRows()) {
 
+                        mCanadaViewModel.insert(word);
+                        Log.e(TAG, "onChanged: " + word.toString());
+
+                    }
 
                 } else {
 
@@ -186,5 +215,18 @@ public class CanadaFragment extends Fragment implements SwipeRefreshLayout.OnRef
         super.onActivityCreated(savedInstanceState);
         mViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
         // TODO: Use the ViewModel
+    }
+
+    @Override
+    public void onResume() {
+
+        super.onResume();
+
+
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
     }
 }

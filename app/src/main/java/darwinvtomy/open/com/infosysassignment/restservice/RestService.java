@@ -22,7 +22,7 @@ import retrofit2.http.GET;
  * @date 1/22/2016
  */
 public interface RestService {
-    @GET(Constants.CANADA_LIST)
+    @GET(Constants.MOCK_CANADA_LIST)
     Call<Canada> gettheCanadalist();
 
 

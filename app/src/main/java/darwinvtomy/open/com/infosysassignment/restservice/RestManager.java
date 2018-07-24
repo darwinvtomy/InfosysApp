@@ -90,9 +90,9 @@ public class RestManager {
            /* okHttpClient.setReadTimeout(1, TimeUnit.MINUTES);
             okHttpClient.setConnectTimeout(1, TimeUnit.MINUTES);*/
             okHttpClient.readTimeoutMillis();
-            Log.d("RESTOFIT","DOMAIN : " + Constants.BASE_URL);
+            Log.d("RESTOFIT","DOMAIN : " + Constants.MOCK_BASE_URL);
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl(Constants.BASE_URL)
+                    .baseUrl(Constants.MOCK_BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .client(okHttpClient)
                     .build();
