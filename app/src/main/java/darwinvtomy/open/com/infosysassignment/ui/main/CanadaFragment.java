@@ -35,7 +35,6 @@ import retrofit2.Response;
  */
 public class CanadaFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
-    private MainViewModel mViewModel;
     SwipeRefreshLayout mSwipeRefreshLayout;
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -84,12 +83,12 @@ public class CanadaFragment extends Fragment implements SwipeRefreshLayout.OnRef
 
         mCanadaViewModel.getAllNews().observe(this, new Observer<List<Canada.RowsBean>>() {
             @Override
-            public void onChanged(@Nullable final List<Canada.RowsBean> words) {
-                // Update the cached copy of the words in the adapter.
-                // adapter.setWords(words);
+            public void onChanged(@Nullable final List<Canada.RowsBean> news) {
+                // Update the cached copy of the news in the adapter.
+                // adapter.setWords(news);
 
                 for (Canada.RowsBean word :
-                        words) {
+                        news) {
 
                     Log.e(TAG, "onChanged: " + word.toString());
 
@@ -213,7 +212,6 @@ public class CanadaFragment extends Fragment implements SwipeRefreshLayout.OnRef
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
         // TODO: Use the ViewModel
     }
 

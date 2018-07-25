@@ -22,7 +22,8 @@ public class CanadaViewModel  extends AndroidViewModel {
         mAllnews = mRepository.getAllWords();
     }
 
-    public LiveData<List<Canada.RowsBean>> getAllNews() { return mAllnews; }
+    public LiveData<List<Canada.RowsBean>> getAllNews() {
+        return mAllnews; }
 
     public void insert(Canada.RowsBean news) {
         mRepository.insert(news); }
