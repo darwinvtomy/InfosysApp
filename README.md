@@ -11,16 +11,16 @@
 <li>:heavy_check_mark: Try to add comments where possible.</li>
 <li>:heavy_check_mark: Don't declare unnecessary methods.</li>
 <li>:heavy_check_mark: Use proper indentation.</li>
-<li>:x: Always prefer to use 'Styles', don't hardcode in the code.</li>
-<li>:x: Refrain to use magic charactors, use strings and dimens xmls wherever required.</li>
-<li>:x: Provide Orientation Support</li>
+<li>:heavy_check_mark: Always prefer to use 'Styles', don't hardcode in the code.</li>
+<li>:heavy_check_mark: Refrain to use magic charactors, use strings and dimens xmls wherever required.</li>
+<li>:heavy_check_mark: Provide Orientation Support</li>
 <li>:heavy_check_mark: Provide Netwotk check</li>
 <li>:heavy_check_mark: Use Design Pattern</li>
 <li>:heavy_check_mark: Implement MVP or MVVM</li>
 <li>:heavy_check_mark: Use proper class and package name</li>
-<li>:x: Code should be running on any device or tablet with maximum test casese covered</li>
-<li>:x: There should not be any crashes in code</li>
-<li>:x: There sould be no warning message on console</li>
+<li>:heavy_check_mark: Code should be running on any device or tablet with maximum test casese covered</li>
+<li>:heavy_check_mark:  There should not be any crashes in code</li>
+<li>:heavy_check_mark: There sould be no warning message on console</li>
 <li>:heavy_check_mark: Use of thrid party library is required</li>
 <li>:heavy_check_mark: Use latest android compenent eg RX android or LiveData</li>
 </ul>
